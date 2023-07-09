@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "chapter01/example01",
+    "chapter01/example02"
+]
