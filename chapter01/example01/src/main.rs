@@ -1,3 +1,4 @@
+#![warn(clippy::all, clippy::pedantic)]
 #![allow(mixed_script_confusables)]
 #![allow(non_ascii_idents)]
 #![allow(unused_assignments)]
@@ -8,6 +9,6 @@ fn main() {
     let π = std::f64::consts::PI;
     let θ = f64::sin(2.0 * π);
     let おやすみ = "Good Night";
-    println!("{}", θ);
-    println!("{}", おやすみ);
+    println!("{θ}");
+    println!("{おやすみ}");
 }
