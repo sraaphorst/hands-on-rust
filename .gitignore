@@ -12,4 +12,7 @@ testData
 /pretty_printers_tests/target
 /native-helper/target
 /attributes-info/target
-/target/
+target/
+/**/target
+!/**/src/**/target/
+/chapter02/target/
