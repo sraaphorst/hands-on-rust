@@ -15,4 +15,3 @@ testData
 target/
 /**/target
 !/**/src/**/target/
-/chapter02/target/
