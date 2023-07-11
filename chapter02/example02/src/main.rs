@@ -49,14 +49,6 @@ fn get_name() -> String {
     name.trim().to_string()
 }
 
-// Here, we invoke a lambda to find the name. Note that the name has already been trimmed
-// by get_name.
-fn find_visitor<'a>(name: &str, visitor_list: &'a [Visitor]) -> Option<&'a Visitor> {
-    visitor_list
-        .iter()
-        .find(|visitor| name.to_lowercase() == visitor.name.to_lowercase())
-}
-
 fn main() {
     // An array of size 3 of Visitor.
     let visitor_list = [
@@ -69,12 +61,14 @@ fn main() {
     let name = get_name();
 
     // Look up the visitor.
-    let optional_visitor = find_visitor(name.as_str(), &visitor_list);
-    optional_visitor.map_or_else(
-        || {
-            println!("You are not on the list.");
-        },
-        |visitor| {
-        visitor.greet_visitor();
-    });
+    let optional_visitor = visitor_list
+        .iter()
+        .find(|visitor| name.to_lowercase() == visitor.name.to_lowercase());
+
+    // In the next example, we will use map_or_else, but here, we match as Option is an
+    // enumerated type.
+    match optional_visitor {
+        Some(visitor) => visitor.greet_visitor(),
+        None => println!("You are not on the list."),
+    };
 }
